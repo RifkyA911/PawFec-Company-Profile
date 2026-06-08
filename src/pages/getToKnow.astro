@@ -1,0 +1,69 @@
+---
+const getToKnows = [
+  {
+    image:
+      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
+    title: "Dr. Emi Cart",
+    description: "Veterinarian",
+  },
+  {
+    image:
+      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
+    title: "Sarah Thomp",
+    description: "Certified Groome",
+  },
+  {
+    image:
+      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
+    title: "Mike Johnson",
+    description: "Behaviorist",
+  },
+  {
+    image:
+      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
+    title: "Jessica Lee",
+    description: "Care Coordinator",
+  },
+];
+---
+
+<section
+  id="getToKnows"
+  class="bg-[#fef7ea] px-8 py-12 mt-12 flex flex-col gap-8 items-center justify-center align-middle"
+>
+  <div
+    class="flex flex-col gap-4 w-full items-center justify-center align-middle"
+  >
+    <h2 class="text-5xl font-bold contents font-fredoka">
+      <span>Get to Know Our Cat Care Experts</span>
+    </h2>
+    <h3 class="text-2xl text-gray-600 font-fredoka max-w-[640px] text-center">
+      Compassionate professionals dedicated to your feline's health and
+      happiness
+    </h3>
+  </div>
+  <div class="mt-8 grid grid-cols-4 gap-8">
+    {
+      getToKnows.map((getToKnow) => (
+        <div
+          class="w-[320px] h-[440px] p-6 flex flex-col gap-4 justify-center items-center
+             bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl text-center transition"
+        >
+          <div>
+            <img
+              src={getToKnow.image}
+              alt={getToKnow.title}
+              height="500"
+              width="500"
+              class="rounded-full"
+            />
+          </div>
+
+          <h4 class="text-3xl font-medium font-balsamiq">{getToKnow.title}</h4>
+
+          <h5 class="font-fredoka text-xl">{getToKnow.description}</h5>
+        </div>
+      ))
+    }
+  </div>
+</section>

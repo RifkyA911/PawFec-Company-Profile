@@ -1,0 +1,77 @@
+---
+const testimonials = [
+  {
+    name: "Emily R. & Whiskers",
+    role: "Marketing Manager & Luna",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    text: "I couldn't be happier with the care my cat, Whiskers, received! The team was gentle, loving, and truly understood my cat’s needs.",
+    rating: 5,
+  },
+  {
+    name: "Tamil Jariahn",
+    role: "CEO at Hynhill",
+    image: "https://randomuser.me/api/portraits/women/65.jpg",
+    text: "I'm beyond pleased with the care my cat received! The team was kind, attentive, and truly understood his needs.",
+    rating: 5,
+  },
+];
+---
+
+<section class="px-8 py-20 text-center bg-white">
+  <h2 class="text-4xl font-bold font-fredoka mb-2">What People Say</h2>
+  <p class="text-gray-600 font-fredoka max-w-xl mx-auto mb-12">
+    Genuine Stories and Heartfelt Experiences from Happy Cat Parents Who Trust
+    Our Care!
+  </p>
+
+  <div class="relative max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 testimonial-cards">
+      {
+        testimonials.map((item) => (
+          <div class="bg-white rounded-3xl shadow-lg p-8 text-left relative">
+            <span class="absolute top-6 right-6 text-orange-400 text-5xl">
+              “
+            </span>
+
+            <div class="flex items-center gap-4 mb-4">
+              <img
+                src={item.image}
+                alt={item.name}
+                class="w-14 h-14 rounded-full object-cover"
+              />
+              <div>
+                <h4 class="font-fredoka font-semibold">{item.name}</h4>
+                <p class="text-sm text-gray-500">{item.role}</p>
+              </div>
+            </div>
+
+            <p class="text-gray-600 font-fredoka mb-6">{item.text}</p>
+
+            <div class="flex justify-center gap-1 bg-purple-200 py-2 rounded-full w-fit px-6 mx-auto">
+              {Array(item.rating)
+                .fill("⭐")
+                .map((star) => star)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- GSAP -->
+  <script is:inline>
+    import gsap from "gsap";
+
+    gsap.from(".testimonial-cards > div", {
+      opacity: 0,
+      y: 60,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".testimonial-cards",
+        start: "top 80%",
+      },
+    });
+  </script>
+</section>

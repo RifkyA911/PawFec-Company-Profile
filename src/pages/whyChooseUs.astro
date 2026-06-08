@@ -1,0 +1,97 @@
+---
+const WhyChooseUss = [
+  {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    title: "Tailored Attention",
+    description:
+      "Every cat is unique, and we provide personalized care to meet their specific needs, from diet to play.",
+  },
+  {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    title: "Experienced Professionals",
+    description:
+      "Our team is made up of cat lovers with extensive experience in feline care, behavior, and health, providing your pet.",
+  },
+  {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    title: "Comprehensive Care",
+    description:
+      "Whether it's feeding, grooming, or administering medications, we cover all aspects of your cat's daily needs with love and precision.",
+  },
+  {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    title: "24/7 Support",
+    description:
+      "Rest assured knowing we're always available to handle emergencies or provide updates about your feline friend's stay.",
+  },
+];
+---
+
+<section
+  id="why_choose_us"
+  class="relative bg-[#fef7ea] h-[1200px] px-8 py-12 flex flex-col gap-8 items-start justify-center align-middle mb-12"
+>
+  <div
+    class="ml-20 xl:ml-50 p-8 flex flex-col gap-4 items-start justify-start align-middle rounded-4xl bg-orange-200"
+  >
+    <h2 class="text-5xl font-bold contents font-fredoka">
+      <span>Why Choose Us</span>
+    </h2>
+    <h3 class="text-2xl text-gray-600 font-fredoka max-w-[440px]">
+      Exceptional care tailored to every cat's needs-prioritizing health,
+      happiness, and ultimate comfort above all else. Experienced Professionals
+    </h3>
+  </div>
+  <div class="absolute top-[60px] left-1/2">
+    <div class="mt-8 grid grid-rows-4 gap-8">
+      {
+        WhyChooseUss.map((WhyChooseUs, i) => (
+          <div
+            class={`why-card w-[520px] h-[240px] p-8 flex gap-4 justify-center items-center
+               bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl text-center transition
+                ${i == 1 || i == 2 ? "ml-20" : ""}
+                shadow-sm
+              `}
+          >
+            <img
+              src={WhyChooseUs.image}
+              alt={WhyChooseUs.title}
+              height="50"
+              width="50"
+            />
+            <div class="flex flex-col gap-4">
+              <h4 class="text-2xl font-medium font-balsamiq">
+                {WhyChooseUs.title}
+              </h4>
+              <h5 class="font-fredoka text-xl">{WhyChooseUs.description}</h5>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("#why_choose_us .why-card", {
+    opacity: 0,
+    x: 80,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#why_choose_us",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>
