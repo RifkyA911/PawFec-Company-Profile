@@ -1,0 +1,59 @@
+---
+const icons = ["🐾", "🐱", "🐟", "🦴", "🧶", "🎾", "🐭", "🐰", "🦜", "🐛", "🦋", "🌸", "🍀", "🌿", "🍃"];
+const colors = ["bg-orange-100", "bg-amber-100", "bg-pink-100", "bg-purple-100", "bg-blue-100", "bg-green-100", "bg-yellow-100", "bg-red-100"];
+const rotations = [15, -20, 45, -30, 60, -45, 75, -15, 90, -75, 120, -120, 150, -150];
+const positions = [
+  { top: "10%", left: "5%" },
+  { top: "15%", right: "10%" },
+  { top: "25%", left: "15%" },
+  { top: "35%", right: "20%" },
+  { top: "45%", left: "25%" },
+  { top: "55%", right: "30%" },
+  { top: "65%", left: "35%" },
+  { top: "75%", right: "40%" },
+  { bottom: "15%", left: "10%" },
+  { bottom: "25%", right: "15%" },
+  { bottom: "35%", left: "20%" },
+  { bottom: "45%", right: "25%" },
+];
+---
+
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  {
+    positions.map((pos, index) => {
+      const icon = icons[index % icons.length];
+      const color = colors[index % colors.length];
+      const rotation = rotations[index % rotations.length];
+      const delay = index * 0.2;
+
+      return (
+        <div
+          class={`absolute ${color} rounded-xl p-2 shadow-sm animate-spin`}
+          style={{
+            ...pos,
+            animationDelay: `${delay}s`,
+            animationDuration: `${8 + (index % 4) * 2}s`,
+            transform: `rotate(${rotation}deg)`,
+          }}
+        >
+          <span class="text-2xl">{icon}</span>
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .animate-spin {
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

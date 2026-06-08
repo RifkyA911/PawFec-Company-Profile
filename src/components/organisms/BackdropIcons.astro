@@ -1,0 +1,99 @@
+---
+const icons = ["🐾", "🐱", "🐟", "🦴", "🧶", "🎾", "🐭", "🐰", "🦜", "🐛", "🦋", "🌸", "🍀", "🌿", "🍃"];
+const colors = ["text-orange-300", "text-amber-300", "text-pink-300", "text-purple-300", "text-blue-300", "text-green-300", "text-yellow-300", "text-red-300"];
+const rotations = [15, -20, 45, -30, 60, -45, 75, -15, 90, -75, 120, -120, 150, -150];
+const positions = [
+  { top: "5%", left: "5%" },
+  { top: "10%", right: "10%" },
+  { top: "20%", left: "15%" },
+  { top: "30%", right: "20%" },
+  { top: "40%", left: "25%" },
+  { top: "50%", right: "30%" },
+  { top: "60%", left: "35%" },
+  { top: "70%", right: "40%" },
+  { top: "80%", left: "45%" },
+  { top: "90%", right: "50%" },
+  { bottom: "10%", left: "10%" },
+  { bottom: "20%", right: "15%" },
+  { bottom: "30%", left: "20%" },
+  { bottom: "40%", right: "25%" },
+  { bottom: "50%", left: "30%" },
+];
+
+const neonColors = ["bg-orange-400", "bg-amber-400", "bg-pink-400", "bg-rose-400", "bg-yellow-400", "bg-orange-500"];
+const neonPositions = [
+  { top: "10%", left: "10%" },
+  { top: "15%", right: "15%" },
+  { top: "25%", left: "20%" },
+  { top: "35%", right: "25%" },
+  { top: "45%", left: "30%" },
+  { top: "55%", right: "35%" },
+  { top: "65%", left: "40%" },
+  { top: "75%", right: "45%" },
+  { bottom: "15%", left: "15%" },
+  { bottom: "25%", right: "20%" },
+  { bottom: "35%", left: "25%" },
+  { bottom: "45%", right: "30%" },
+];
+---
+
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <!-- Large Neon Dots -->
+  {
+    neonPositions.map((pos, index) => {
+      const color = neonColors[index % neonColors.length];
+      const delay = index * 0.3;
+      const size = 80 + (index % 3) * 20;
+
+      return (
+        <div
+          class={`absolute ${color} rounded-full opacity-20 animate-pulse blur-xl`}
+          style={{
+            ...pos,
+            width: `${size}px`,
+            height: `${size}px`,
+            animationDelay: `${delay}s`,
+          }}
+        />
+      );
+    })
+  }
+
+  <!-- Small Icons -->
+  {
+    positions.map((pos, index) => {
+      const icon = icons[index % icons.length];
+      const color = colors[index % colors.length];
+      const rotation = rotations[index % rotations.length];
+      const delay = index * 0.15;
+
+      return (
+        <div
+          class={`absolute ${color} text-4xl animate-bounce opacity-40`}
+          style={{
+            ...pos,
+            animationDelay: `${delay}s`,
+            transform: `rotate(${rotation}deg)`,
+          }}
+        >
+          {icon}
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) rotate(var(--rotation, 0deg));
+    }
+    50% {
+      transform: translateY(-15px) rotate(var(--rotation, 0deg));
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+  }
+</style>
