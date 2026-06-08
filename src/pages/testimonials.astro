@@ -4,7 +4,7 @@ const testimonials = [
     name: "Emily R. & Whiskers",
     role: "Marketing Manager & Luna",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    text: "I couldn't be happier with the care my cat, Whiskers, received! The team was gentle, loving, and truly understood my cat’s needs.",
+    text: "I couldn't be happier with the care my cat, Whiskers, received! The team was gentle, loving, and truly understood my cat's needs.",
     rating: 5,
   },
   {
@@ -14,64 +14,200 @@ const testimonials = [
     text: "I'm beyond pleased with the care my cat received! The team was kind, attentive, and truly understood his needs.",
     rating: 5,
   },
+  {
+    name: "Michael Chen",
+    role: "Software Engineer",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    text: "The grooming service is exceptional! My cat usually hates grooming but they made it stress-free. Highly recommend!",
+    rating: 5,
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Teacher",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+    text: "Best cat care facility in the city! The staff is knowledgeable and genuinely cares about every cat.",
+    rating: 5,
+  },
+  {
+    name: "David Wilson",
+    role: "Business Owner",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    text: "I've tried many cat care services, but Pawfec Care stands out. Professional, reliable, and affordable.",
+    rating: 5,
+  },
+  {
+    name: "Lisa Martinez",
+    role: "Nurse",
+    image: "https://randomuser.me/api/portraits/women/33.jpg",
+    text: "The pet sitting service gave me peace of mind while traveling. Daily updates and photos were amazing!",
+    rating: 5,
+  },
 ];
 ---
 
-<section class="px-8 py-20 text-center bg-white">
-  <h2 class="text-4xl font-bold font-fredoka mb-2">What People Say</h2>
-  <p class="text-gray-600 font-fredoka max-w-xl mx-auto mb-12">
-    Genuine Stories and Heartfelt Experiences from Happy Cat Parents Who Trust
-    Our Care!
-  </p>
+<section class="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-orange-50 to-white overflow-hidden">
 
-  <div class="relative max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 testimonial-cards">
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <span class="font-semibold font-fredoka text-sm">Testimonials</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-balsamiq text-gray-800 mb-4">
+        What People Say
+      </h2>
+      
+      <p class="text-xl text-gray-600 font-fredoka max-w-3xl mx-auto">
+        Genuine Stories and Heartfelt Experiences from Happy Cat Parents Who Trust Our Care!
+      </p>
+    </div>
+
+    <!-- Marquee Container -->
+    <div class="relative overflow-hidden mb-12">
+      <!-- Gradient Overlays -->
+      <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+      <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+      
+      <!-- Marquee Track -->
+      <div class="flex gap-8 animate-marquee">
+        {
+          [...testimonials, ...testimonials].map((item, index) => (
+            <div class="testimonial-card flex-shrink-0 w-[400px] bg-white rounded-3xl shadow-lg p-8 text-left relative hover:shadow-xl transition-shadow duration-300">
+              <svg class="absolute top-6 right-6 text-orange-300 w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+              
+              <div class="flex items-center gap-4 mb-4">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  class="w-14 h-14 rounded-full object-cover border-2 border-orange-200"
+                />
+                <div>
+                  <h4 class="font-fredoka font-semibold text-gray-800">{item.name}</h4>
+                  <p class="text-sm text-gray-500 font-balsamiq">{item.role}</p>
+                </div>
+              </div>
+              
+              <p class="text-gray-600 font-fredoka mb-6 leading-relaxed">{item.text}</p>
+              
+              <div class="flex gap-1">
+                {Array(item.rating).fill(0).map((_, i) => (
+                  <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Static Grid for Mobile Fallback -->
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         testimonials.map((item) => (
-          <div class="bg-white rounded-3xl shadow-lg p-8 text-left relative">
-            <span class="absolute top-6 right-6 text-orange-400 text-5xl">
-              “
-            </span>
-
+          <div class="testimonial-card bg-white rounded-3xl shadow-lg p-8 text-left relative hover:shadow-xl transition-shadow duration-300">
+            <svg class="absolute top-6 right-6 text-orange-300 w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+            
             <div class="flex items-center gap-4 mb-4">
               <img
                 src={item.image}
                 alt={item.name}
-                class="w-14 h-14 rounded-full object-cover"
+                class="w-14 h-14 rounded-full object-cover border-2 border-orange-200"
               />
               <div>
-                <h4 class="font-fredoka font-semibold">{item.name}</h4>
-                <p class="text-sm text-gray-500">{item.role}</p>
+                <h4 class="font-fredoka font-semibold text-gray-800">{item.name}</h4>
+                <p class="text-sm text-gray-500 font-balsamiq">{item.role}</p>
               </div>
             </div>
-
-            <p class="text-gray-600 font-fredoka mb-6">{item.text}</p>
-
-            <div class="flex justify-center gap-1 bg-purple-200 py-2 rounded-full w-fit px-6 mx-auto">
-              {Array(item.rating)
-                .fill("⭐")
-                .map((star) => star)}
+            
+            <p class="text-gray-600 font-fredoka mb-6 leading-relaxed">{item.text}</p>
+            
+            <div class="flex gap-1">
+              {Array(item.rating).fill(0).map((_, i) => (
+                <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+              ))}
             </div>
           </div>
         ))
       }
     </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+      >
+        <span class="text-lg">✨</span>
+        Share Your Experience
+      </a>
+    </div>
   </div>
-
-  <!-- GSAP -->
-  <script is:inline>
-    import gsap from "gsap";
-
-    gsap.from(".testimonial-cards > div", {
-      opacity: 0,
-      y: 60,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".testimonial-cards",
-        start: "top 80%",
-      },
-    });
-  </script>
 </section>
+
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .testimonial-card {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hidden.md\:grid .testimonial-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .hidden.md\:grid .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    });
+
+    const marqueeCards = document.querySelectorAll(".animate-marquee .testimonial-card");
+    const staticCards = document.querySelectorAll(".hidden.md\\:grid .testimonial-card");
+
+    marqueeCards.forEach((card, index) => {
+      setTimeout(() => observer.observe(card), index * 100);
+    });
+    staticCards.forEach((card, index) => {
+      setTimeout(() => observer.observe(card), index * 150);
+    });
+  });
+</script>

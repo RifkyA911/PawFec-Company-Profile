@@ -1,73 +1,219 @@
 ---
-import { Stethoscope } from "lucide-react";
-
 const tips = [
   {
-    description:
-      "Choose high-quality, well-balanced cat food suited to their age and health needs.",
+    icon: "lightbulb",
+    title: "Nutrition Matters",
+    description: "Choose high-quality, well-balanced cat food suited to their age and health needs. Avoid fillers and artificial preservatives.",
   },
   {
-    description:
-      "Schedule annual vet visits for vaccinations, health screenings, and preventive care.",
+    icon: "heart",
+    title: "Regular Vet Visits",
+    description: "Schedule annual vet visits for vaccinations, health screenings, and preventive care. Early detection saves lives.",
   },
   {
-    description:
-      "Regularly brush their coat to prevent matting, trim nails, and clean ears to maintain hygiene.",
+    icon: "paw",
+    title: "Daily Grooming",
+    description: "Regularly brush their coat to prevent matting, trim nails, and clean ears to maintain hygiene and bond with your cat.",
+  },
+  {
+    icon: "sparkles",
+    title: "Mental Stimulation",
+    description: "Provide interactive toys, puzzle feeders, and play sessions to keep your cat mentally stimulated and prevent boredom.",
+  },
+  {
+    icon: "heart",
+    title: "Hydration is Key",
+    description: "Ensure fresh water is always available. Consider a water fountain to encourage drinking and prevent kidney issues.",
+  },
+  {
+    icon: "lightbulb",
+    title: "Safe Environment",
+    description: "Create a safe indoor environment with scratching posts, climbing trees, and cozy hiding spots for your cat's comfort.",
   },
 ];
 ---
 
 <section
   id="tips"
-  class="px-8 py-12 min-h-[720px] flex flex-col gap-8 items-center justify-center align-middle"
+  class="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-orange-50 to-white overflow-hidden"
 >
-  <div
-    class="relative bg-amber-500 flex gap-4 w-[1280px] h-[480px] items-center justify-end align-middle rounded-4xl"
-  >
-    <div class="absolute bottom-0 left-0">
-      <img
-        src={`https://png.pngtree.com/png-clipart/20250814/original/pngtree-happy-veterinary-doctor-holding-fluffy-cat-in-white-office-png-image_21393757.png`}
-        height="550"
-        width="550"
-      />
-    </div>
-    <div
-      class="absolute flex justify-center items-center gap-4 bottom-4 p-4 left-[300px] rounded-4xl bg-white shadow-lg"
-    >
-      <Stethoscope className="text-gray-800" width={32} height={32} />
-      <div class="border-l-4 border-gray-600 px-4">
-        <h4 class="font-balsamiq font-medium text-gray-800 text-xl">
-          Dr. John Doe
-        </h4>
-        <h5 class="font-balsamiq font-medium text-gray-500 text-sm">
-          Head of Feline Haven
-        </h5>
-      </div>
-    </div>
-    <div class="flex flex-col align-middle justify-center p-8 w-1/2">
-      <h2 class="text-4xl text-white font-bold contents font-fredoka">
-        <span>Tips From Our Expert</span>
-      </h2>
-      <div class="mt-8 flex flex-col gap-8">
-        {
-          tips.map((tip) => (
-            <div
-              class="h-[80px] p-6 flex gap-4 justify-center items-center
-             bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl transition"
-            >
-              <img
-                src={`https://cdn-icons-png.flaticon.com/512/12/12638.png`}
-                alt={tip.description}
-                height="20"
-                width="20"
-              />
 
-              <h5 class="font-fredoka text-lg">{tip.description}</h5>
-            </div>
-          ))
-        }
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <span class="font-semibold font-fredoka text-sm">Expert Advice</span>
       </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-balsamiq text-gray-800 mb-4">
+        Tips From Our Expert
+      </h2>
+      
+      <p class="text-xl text-gray-600 font-fredoka max-w-3xl mx-auto">
+        Valuable insights from our veterinary professionals to keep your feline friend healthy, happy, and thriving.
+      </p>
+    </div>
+
+    <!-- Expert Card -->
+    <div class="relative bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl p-8 md:p-12 mb-12 overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-4 left-4 w-20 h-20 border-4 border-white rounded-full" />
+        <div class="absolute bottom-4 right-4 w-16 h-16 border-4 border-white rounded-full" />
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-white rounded-full" />
+      </div>
+
+      <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+        <!-- Expert Info -->
+        <div class="text-white">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 0 0 5 2h14a.3.3 0 0 1 .2.3l-.3 11.7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4.8 2.3z"/><path d="M12 2v20"/><path d="M8 10a4 4 0 0 1 8 0"/></svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold font-fredoka">Dr. Sarah Mitchell</h3>
+              <p class="text-orange-100 font-balsamiq">Chief Veterinarian</p>
+            </div>
+          </div>
+          <p class="text-white/90 font-fredoka leading-relaxed">
+            With over 15 years of experience in feline medicine, I'm here to share evidence-based tips to help you provide the best care for your beloved cat.
+          </p>
+        </div>
+
+        <!-- Expert Image -->
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face"
+            alt="Dr. Sarah Mitchell"
+            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-2xl mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        tips.map((tip, index) => {
+          return (
+            <div
+              class="tip-card group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-orange-200 transition-colors">
+                  {tip.icon === "lightbulb" && (
+                    <svg class="w-6 h-6 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2v1"/><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></svg>
+                  )}
+                  {tip.icon === "heart" && (
+                    <svg class="w-6 h-6 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  )}
+                  {tip.icon === "paw" && (
+                    <svg class="w-6 h-6 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-5.5-2c.83 0 1.5.67 1.5 1.5S10.33 13 9.5 13 8 12.33 8 11.5 8.67 10 9.5 10zm7 0c.83 0 1.5.67 1.5 1.5S17.33 13 16.5 13 15 12.33 15 11.5 15.67 10 16.5 10z"/></svg>
+                  )}
+                  {tip.icon === "sparkles" && (
+                    <svg class="w-6 h-6 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+                  )}
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold font-dynapuff text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
+                    {tip.title}
+                  </h4>
+                  <p class="text-gray-600 font-fredoka text-sm leading-relaxed">
+                    {tip.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        Ask Our Experts
+      </a>
     </div>
   </div>
-  <div class="flex flex-col gap-4"></div>
 </section>
+
+<!-- Scroll Indicator -->
+<section class="relative py-8 bg-gradient-to-br from-orange-50 via-white to-amber-50">
+  <div class="flex flex-col items-center gap-2 text-gray-500 hover:text-orange-500 transition-colors cursor-pointer" onclick="document.getElementById('why_choose_us').scrollIntoView({behavior: 'smooth'})">
+    <span class="text-sm font-fredoka">Scroll Down</span>
+    <span class="text-lg rotate-90 animate-bounce">→</span>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-bounce {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  #tips .bg-gradient-to-r {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  #tips .bg-gradient-to-r.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tip-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .tip-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tip-card > div > div:first-child {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .tip-card.visible > div > div:first-child {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    });
+
+    const expertCard = document.querySelector("#tips .bg-gradient-to-r");
+    const tipCards = document.querySelectorAll("#tips .tip-card");
+
+    if (expertCard) observer.observe(expertCard);
+    tipCards.forEach((card, index) => {
+      setTimeout(() => observer.observe(card), index * 100);
+    });
+  });
+</script>

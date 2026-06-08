@@ -1,104 +1,190 @@
 ---
 const services = [
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
-    title: "Grooming",
-    description:
-      "Full grooming for a happy, clean cat,bath, brush, nail trim, and more.",
+    icon: "scissors",
+    title: "Professional Grooming",
+    description: "Full grooming services including bath, brush, nail trim, ear cleaning, and styling to keep your cat looking fabulous and feeling fresh.",
+    features: ["Bath & Brush", "Nail Trimming", "Ear Cleaning", "Styling"],
+    color: "from-orange-400 to-amber-400",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "stethoscope",
     title: "Health Check",
-    description:
-      "Routine vet check-ups to keep your cat in top shape so they can lead healthy life.",
+    description: "Comprehensive veterinary check-ups, vaccinations, health screenings, and preventive care to ensure your feline friend stays healthy and happy.",
+    features: ["Vaccinations", "Health Screenings", "Preventive Care", "Emergency Care"],
+    color: "from-purple-400 to-pink-400",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "home",
     title: "Pet Sitting",
-    description:
-      "Safe, cozy care while you're away, with plenty of love and play on daily routine basis.",
+    description: "Safe, cozy, and loving care while you're away. Daily play sessions, feeding, and plenty of cuddles to keep your cat comfortable and content.",
+    features: ["Daily Play", "Feeding", "Cuddles", "Updates"],
+    color: "from-blue-400 to-cyan-400",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
-    title: "Nutrition",
-    description:
-      "Personalized diet plans for a healthy, happy cat so they can lead a very healthy life.",
+    icon: "apple",
+    title: "Nutrition Planning",
+    description: "Personalized diet plans tailored to your cat's age, health needs, and preferences. Expert advice on food choices and portion control.",
+    features: ["Custom Diets", "Food Selection", "Portion Control", "Health Monitoring"],
+    color: "from-green-400 to-emerald-400",
+  },
+  {
+    icon: "sparkles",
+    title: "Behavior Training",
+    description: "Positive reinforcement training to address behavioral issues, teach good habits, and strengthen the bond between you and your cat.",
+    features: ["Positive Training", "Behavior Modification", "Socialization", "Bond Building"],
+    color: "from-pink-400 to-rose-400",
+  },
+  {
+    icon: "stethoscope",
+    title: "Dental Care",
+    description: "Professional dental cleaning, oral health assessments, and preventive care to keep your cat's teeth and gums healthy and strong.",
+    features: ["Dental Cleaning", "Oral Assessment", "Preventive Care", "Treatment"],
+    color: "from-indigo-400 to-violet-400",
   },
 ];
 ---
 
 <section
   id="services"
-  class="bg-slate-200 px-8 py-12 xmt-12 flex flex-col gap-8 items-center justify-center align-middle"
+  class="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-orange-50 to-white overflow-hidden"
 >
-  <div
-    class="flex flex-col gap-4 w-full items-center justify-center align-middle"
-  >
-    <h2 class="text-5xl font-bold contents font-fredoka">
-      <span>Service We Provide</span>
-    </h2>
-    <h3 class="text-2xl text-gray-600 font-fredoka max-w-[640px] text-center">
-      Your Ultimate Destination for Expert Care, Training, and Wellness to Keep
-      Your Furry Friends Happy and Healthy!
-    </h3>
-  </div>
-  <div class="mt-8 grid grid-cols-4 gap-8">
-    {
-      services.map((service) => (
-        <div
-          class="service-card w-[320px] h-[440px] p-6 flex flex-col gap-4 justify-center items-center
-             bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl text-center transition"
-        >
-          <img src={service.image} alt={service.title} height="50" width="50" />
 
-          <h4 class="text-3xl font-medium font-dynapuff">{service.title}</h4>
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <span class="font-semibold font-fredoka text-sm">Our Premium Services</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-balsamiq text-gray-800 mb-4">
+        Services We Provide
+      </h2>
+      
+      <p class="text-xl text-gray-600 font-fredoka max-w-3xl mx-auto">
+        Your Ultimate Destination for Expert Care, Training, and Wellness to Keep Your Furry Friends Happy and Healthy!
+      </p>
+    </div>
 
-          <h5 class="font-fredoka text-xl">{service.description}</h5>
-        </div>
-      ))
-    }
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        services.map((service, index) => {
+          return (
+            <div
+              class="service-card group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+            >
+              <!-- Gradient Background on Hover -->
+              <div class={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+              
+              <!-- Icon Container -->
+              <div class={`relative w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                {service.icon === "scissors" && (
+                  <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+                )}
+                {service.icon === "stethoscope" && (
+                  <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 0 0 5 2h14a.3.3 0 0 1 .2.3l-.3 11.7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4.8 2.3z"/><path d="M12 2v20"/><path d="M8 10a4 4 0 0 1 8 0"/></svg>
+                )}
+                {service.icon === "home" && (
+                  <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                )}
+                {service.icon === "apple" && (
+                  <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-1.26 0-3.5.94-3.5 3.5 0 2.75 3.5 3.5 3.5 3.5a6.9 6.9 0 0 1-5 8.94z"/><path d="M10 2v1"/><path d="M14 2v1"/></svg>
+                )}
+                {service.icon === "sparkles" && (
+                  <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+                )}
+              </div>
+
+              <!-- Content -->
+              <h3 class="text-2xl font-bold font-dynapuff text-gray-800 mb-3 group-hover:text-orange-600 transition-colors">
+                {service.title}
+              </h3>
+              
+              <p class="text-gray-600 font-fredoka mb-6 leading-relaxed">
+                {service.description}
+              </p>
+
+              <!-- Features List -->
+              <ul class="space-y-2 mb-6">
+                {service.features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm text-gray-600 font-balsamiq">
+                    <div class="w-1.5 h-1.5 bg-orange-400 rounded-full" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Learn More Link -->
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 text-orange-500 font-semibold font-fredoka group-hover:gap-3 transition-all"
+              >
+                Learn More
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 text-center">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        Book a Consultation
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
+<style>
+  .service-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .service-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .service-card .relative.w-16 {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .service-card.visible .relative.w-16 {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+</style>
+
 <script>
-  import gsap from "gsap";
-  import ScrollTrigger from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
   window.addEventListener("load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    });
+
     const cards = document.querySelectorAll("#services .service-card");
-    const images = document.querySelectorAll("#services img");
-
-    gsap.from(cards, {
-      opacity: 0,
-      y: 80,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "#services",
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    gsap.from(images, {
-      scale: 0.7,
-      opacity: 0,
-      stagger: 0.15,
-      scrollTrigger: {
-        trigger: "#services",
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    ScrollTrigger.refresh(); // memastikan ScrollTrigger tahu posisi elemen
+    cards.forEach(card => observer.observe(card));
   });
 </script>
 

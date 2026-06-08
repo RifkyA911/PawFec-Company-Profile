@@ -1,97 +1,230 @@
 ---
-const WhyChooseUss = [
+const benefits = [
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "heart",
     title: "Tailored Attention",
-    description:
-      "Every cat is unique, and we provide personalized care to meet their specific needs, from diet to play.",
+    description: "Every cat is unique, and we provide personalized care to meet their specific needs, from diet preferences to play styles. Your feline friend deserves individualized attention.",
+    color: "from-pink-500 to-rose-500",
+    bgColor: "bg-pink-50",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "award",
     title: "Experienced Professionals",
-    description:
-      "Our team is made up of cat lovers with extensive experience in feline care, behavior, and health, providing your pet.",
+    description: "Our team consists of certified veterinarians, groomers, and behaviorists with years of feline expertise. We're passionate cat lovers dedicated to excellence.",
+    color: "from-amber-500 to-orange-500",
+    bgColor: "bg-amber-50",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "shield",
     title: "Comprehensive Care",
-    description:
-      "Whether it's feeding, grooming, or administering medications, we cover all aspects of your cat's daily needs with love and precision.",
+    description: "From feeding and grooming to administering medications, we cover all aspects of your cat's daily needs with love, precision, and attention to detail.",
+    color: "from-green-500 to-emerald-500",
+    bgColor: "bg-green-50",
   },
   {
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwC2aNfXCGZdPJg06qtZVWv5RYhJCETejw&s",
+    icon: "clock",
     title: "24/7 Support",
-    description:
-      "Rest assured knowing we're always available to handle emergencies or provide updates about your feline friend's stay.",
+    description: "Rest assured knowing we're always available to handle emergencies, provide updates about your feline friend's stay, or answer any questions you may have.",
+    color: "from-blue-500 to-cyan-500",
+    bgColor: "bg-blue-50",
+  },
+  {
+    icon: "users",
+    title: "Community of Cat Lovers",
+    description: "Join a thriving community of cat enthusiasts. Share experiences, get advice, and connect with other cat parents who trust our care.",
+    color: "from-purple-500 to-violet-500",
+    bgColor: "bg-purple-50",
+  },
+  {
+    icon: "check",
+    title: "Satisfaction Guaranteed",
+    description: "We stand behind our services with a satisfaction guarantee. If you're not happy, we'll make it right. Your peace of mind matters to us.",
+    color: "from-indigo-500 to-blue-500",
+    bgColor: "bg-indigo-50",
   },
 ];
 ---
 
 <section
   id="why_choose_us"
-  class="relative bg-[#fef7ea] h-[1200px] px-8 py-12 flex flex-col gap-8 items-start justify-center align-middle mb-12"
+  class="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-orange-50 to-white overflow-hidden"
 >
-  <div
-    class="ml-20 xl:ml-50 p-8 flex flex-col gap-4 items-start justify-start align-middle rounded-4xl bg-orange-200"
-  >
-    <h2 class="text-5xl font-bold contents font-fredoka">
-      <span>Why Choose Us</span>
-    </h2>
-    <h3 class="text-2xl text-gray-600 font-fredoka max-w-[440px]">
-      Exceptional care tailored to every cat's needs-prioritizing health,
-      happiness, and ultimate comfort above all else. Experienced Professionals
-    </h3>
-  </div>
-  <div class="absolute top-[60px] left-1/2">
-    <div class="mt-8 grid grid-rows-4 gap-8">
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <span class="font-semibold font-fredoka text-sm">Why Choose Pawfec Care</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-balsamiq text-gray-800 mb-4">
+        Why Choose Us
+      </h2>
+      
+      <p class="text-xl text-gray-600 font-fredoka max-w-3xl mx-auto">
+        Exceptional care tailored to every cat's needs - prioritizing health, happiness, and ultimate comfort above all else. Experience the difference with our dedicated team.
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
-        WhyChooseUss.map((WhyChooseUs, i) => (
-          <div
-            class={`why-card w-[520px] h-[240px] p-8 flex gap-4 justify-center items-center
-               bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl text-center transition
-                ${i == 1 || i == 2 ? "ml-20" : ""}
-                shadow-sm
-              `}
-          >
-            <img
-              src={WhyChooseUs.image}
-              alt={WhyChooseUs.title}
-              height="50"
-              width="50"
-            />
-            <div class="flex flex-col gap-4">
-              <h4 class="text-2xl font-medium font-balsamiq">
-                {WhyChooseUs.title}
-              </h4>
-              <h5 class="font-fredoka text-xl">{WhyChooseUs.description}</h5>
+        benefits.map((benefit, index) => {
+          return (
+            <div
+              class="benefit-card group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+            >
+              <!-- Gradient Background on Hover -->
+              <div class={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              
+              <!-- Icon Container -->
+              <div class={`relative w-20 h-20 ${benefit.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                {benefit.icon === "heart" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#ec4899"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                )}
+                {benefit.icon === "award" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+                )}
+                {benefit.icon === "shield" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                )}
+                {benefit.icon === "clock" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                )}
+                {benefit.icon === "users" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                )}
+                {benefit.icon === "check" && (
+                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                )}
+              </div>
+
+              <!-- Content -->
+              <h3 class="text-2xl font-bold font-dynapuff text-gray-800 mb-3 group-hover:text-orange-600 transition-colors">
+                {benefit.title}
+              </h3>
+              
+              <p class="text-gray-600 font-fredoka leading-relaxed">
+                {benefit.description}
+              </p>
+
+              <!-- Decorative Element -->
+              <div class={`absolute top-4 right-4 w-2 h-2 rounded-full bg-gradient-to-br ${benefit.color} opacity-50`} />
             </div>
-          </div>
-        ))
+          );
+        })
       }
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md">
+        <svg class="w-8 h-8 text-orange-500 mx-auto mb-2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <div class="text-2xl font-bold font-dynapuff text-gray-800 count-up" data-target="10" data-suffix="+">0</div>
+        <div class="text-sm text-gray-600 font-fredoka">Years Experience</div>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md">
+        <svg class="w-8 h-8 text-pink-500 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="text-2xl font-bold font-dynapuff text-gray-800 count-up" data-target="5000" data-suffix="+">0</div>
+        <div class="text-sm text-gray-600 font-fredoka">Happy Cats</div>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md">
+        <svg class="w-8 h-8 text-green-500 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="text-2xl font-bold font-dynapuff text-gray-800 count-up" data-target="99" data-suffix="%">0</div>
+        <div class="text-sm text-gray-600 font-fredoka">Satisfaction Rate</div>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md">
+        <svg class="w-8 h-8 text-blue-500 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="text-2xl font-bold font-dynapuff text-gray-800">24/7</div>
+        <div class="text-sm text-gray-600 font-fredoka">Support Available</div>
+      </div>
     </div>
   </div>
 </section>
 
-<script is:inline>
-  import gsap from "gsap";
-  import ScrollTrigger from "gsap/ScrollTrigger";
+<style>
+  .benefit-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
 
-  gsap.registerPlugin(ScrollTrigger);
+  .benefit-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 
-  gsap.from("#why_choose_us .why-card", {
-    opacity: 0,
-    x: 80,
-    stagger: 0.2,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#why_choose_us",
-      start: "top 75%",
-      toggleActions: "play none none none",
-    },
+  .benefit-card .relative.w-16 {
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .benefit-card.visible .relative.w-16 {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  #why_choose_us .grid-cols-2 > div {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  #why_choose_us .grid-cols-2 > div.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    });
+
+    const cards = document.querySelectorAll("#why_choose_us .benefit-card");
+    const badges = document.querySelectorAll("#why_choose_us .grid-cols-2 > div");
+
+    cards.forEach((card, index) => {
+      setTimeout(() => observer.observe(card), index * 100);
+    });
+    badges.forEach((badge, index) => {
+      setTimeout(() => observer.observe(badge), index * 150);
+    });
+
+    // Counting animation for stats
+    const counters = document.querySelectorAll('.count-up');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target') || '0');
+          const suffix = counter.getAttribute('data-suffix') || '';
+          let current = 0;
+          const increment = target / 50;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.round(current) + suffix;
+            }
+          }, 40);
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
   });
 </script>

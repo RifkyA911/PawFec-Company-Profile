@@ -1,69 +1,197 @@
 ---
-const getToKnows = [
+const teamMembers = [
   {
-    image:
-      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
-    title: "Dr. Emi Cart",
-    description: "Veterinarian",
+    name: "Dr. Sarah Mitchell",
+    role: "Chief Veterinarian",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face",
+    bio: "15+ years of feline medicine expertise. Specialized in cat dentistry and preventive care with a gentle touch.",
+    education: "DVM, Cornell University",
+    achievements: ["Published 20+ research papers", "Awarded Best Feline Vet 2023"],
+    social: { linkedin: "#", email: "sarah@pawfecare.com" },
   },
   {
-    image:
-      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
-    title: "Sarah Thomp",
-    description: "Certified Groome",
+    name: "Michael Chen",
+    role: "Senior Groomer",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    bio: "Master groomer with 10 years of experience. Expert in handling anxious cats and creating stress-free grooming experiences.",
+    education: "Certified Feline Groomer",
+    achievements: ["Groomed 5000+ cats", "Trained 50+ groomers"],
+    social: { linkedin: "#", email: "michael@pawfecare.com" },
   },
   {
-    image:
-      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
-    title: "Mike Johnson",
-    description: "Behaviorist",
+    name: "Dr. Emily Rodriguez",
+    role: "Feline Behaviorist",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+    bio: "PhD in Animal Behavior. Specializes in cat psychology, anxiety management, and positive reinforcement training.",
+    education: "PhD, UC Davis",
+    achievements: ["Authored 'Understanding Your Cat'", "TEDx Speaker"],
+    social: { linkedin: "#", email: "emily@pawfecare.com" },
   },
   {
-    image:
-      "https://i.pinimg.com/originals/09/ff/90/09ff907691b87a3b90add1d338f1fc9f.jpg",
-    title: "Jessica Lee",
-    description: "Care Coordinator",
+    name: "James Wilson",
+    role: "Care Coordinator",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    bio: "Dedicated to ensuring every cat receives personalized care. Coordinates all services and maintains client relationships.",
+    education: "BS Animal Science",
+    achievements: ["100% Client Satisfaction", "Team Leader of the Year"],
+    social: { linkedin: "#", email: "james@pawfecare.com" },
   },
 ];
 ---
 
 <section
   id="getToKnows"
-  class="bg-[#fef7ea] px-8 py-12 mt-12 flex flex-col gap-8 items-center justify-center align-middle"
+  class="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-orange-50 to-white overflow-hidden"
 >
-  <div
-    class="flex flex-col gap-4 w-full items-center justify-center align-middle"
-  >
-    <h2 class="text-5xl font-bold contents font-fredoka">
-      <span>Get to Know Our Cat Care Experts</span>
-    </h2>
-    <h3 class="text-2xl text-gray-600 font-fredoka max-w-[640px] text-center">
-      Compassionate professionals dedicated to your feline's health and
-      happiness
-    </h3>
-  </div>
-  <div class="mt-8 grid grid-cols-4 gap-8">
-    {
-      getToKnows.map((getToKnow) => (
-        <div
-          class="w-[320px] h-[440px] p-6 flex flex-col gap-4 justify-center items-center
-             bg-white text-gray-700 hover:bg-amber-500 hover:text-white rounded-4xl text-center transition"
-        >
-          <div>
-            <img
-              src={getToKnow.image}
-              alt={getToKnow.title}
-              height="500"
-              width="500"
-              class="rounded-full"
-            />
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-6">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+        <span class="font-semibold font-fredoka text-sm">Meet Our Team</span>
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-balsamiq text-gray-800 mb-4">
+        Get to Know Our Cat Care Experts
+      </h2>
+      
+      <p class="text-xl text-gray-600 font-fredoka max-w-3xl mx-auto">
+        Compassionate professionals dedicated to your feline's health and happiness. Our team combines expertise with genuine love for cats.
+      </p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        teamMembers.map((member, index) => (
+          <div
+            class="team-card group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+          >
+            <!-- Image Container -->
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              
+              <!-- Social Links Overlay -->
+              <div class="absolute bottom-4 left-4 right-4 flex justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <a
+                  href={member.social.linkedin}
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-orange-500 transition-colors"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a
+                  href={`mailto:${member.social.email}`}
+                  class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-orange-500 transition-colors"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-dynapuff text-gray-800 mb-1 group-hover:text-orange-600 transition-colors">
+                {member.name}
+              </h3>
+              
+              <p class="text-orange-500 font-semibold font-fredoka text-sm mb-3">
+                {member.role}
+              </p>
+              
+              <p class="text-gray-600 font-balsamiq text-sm leading-relaxed mb-4">
+                {member.bio}
+              </p>
+
+              <div class="border-t border-gray-100 pt-4">
+                <p class="text-xs text-gray-500 font-fredoka mb-2">
+                  {member.education}
+                </p>
+                <div class="flex flex-wrap gap-1">
+                  {member.achievements.map((achievement) => (
+                    <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-balsamiq">
+                      {achievement}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
+        ))
+      }
+    </div>
 
-          <h4 class="text-3xl font-medium font-balsamiq">{getToKnow.title}</h4>
-
-          <h5 class="font-fredoka text-xl">{getToKnow.description}</h5>
+    <!-- Join Our Team CTA -->
+    <div class="mt-16 text-center">
+      <div class="inline-block bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl p-1">
+        <div class="bg-white rounded-3xl px-8 py-6">
+          <h3 class="text-2xl font-bold font-balsamiq text-gray-800 mb-2">
+            Join Our Team
+          </h3>
+          <p class="text-gray-600 font-fredoka mb-4">
+            Passionate about cats? We're always looking for talented individuals to join our team.
+          </p>
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold px-6 py-3 rounded-full hover:shadow-lg transition-all"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+            View Openings
+          </a>
         </div>
-      ))
-    }
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  #getToKnows .text-center {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  #getToKnows .text-center.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .team-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .team-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    });
+
+    const sectionHeader = document.querySelector("#getToKnows .text-center");
+    const teamCards = document.querySelectorAll("#getToKnows .team-card");
+
+    if (sectionHeader) observer.observe(sectionHeader);
+    teamCards.forEach((card, index) => {
+      setTimeout(() => observer.observe(card), index * 150);
+    });
+  });
+</script>
