@@ -1,0 +1,48 @@
+<section class="px-8 py-24 bg-white">
+  <div
+    class="relative max-w-6xl mx-auto bg-gradient-to-r from-orange-400 to-orange-300 rounded-[3rem] p-16 flex flex-col md:flex-row items-center justify-between overflow-hidden cta-box"
+  >
+    <div class="text-white max-w-xl">
+      <h2 class="text-4xl font-bold font-fredoka mb-4">
+        Hi, How can we help you?
+      </h2>
+      <p class="font-fredoka mb-8 opacity-90">
+        Providing Expert Advice, Loving Care, and Essential Tips for a Happy and
+        Healthy Cat
+      </p>
+
+      <div class="flex bg-white rounded-full overflow-hidden w-fit">
+        <input
+          type="email"
+          placeholder="Enter your mail here"
+          class="px-6 py-3 outline-none text-gray-700"
+        />
+        <button class="bg-purple-400 text-white px-6 font-fredoka">
+          Subscribe
+        </button>
+      </div>
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+      alt="Vet"
+      class="w-72 mt-10 md:mt-0 rounded-3xl"
+    />
+  </div>
+
+  <!-- GSAP -->
+  <script is:inline>
+    import gsap from "gsap";
+
+    gsap.from(".cta-box", {
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".cta-box",
+        start: "top 85%",
+      },
+    });
+  </script>
+</section>
